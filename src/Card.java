@@ -15,7 +15,7 @@ public class Card {
 	private int faceValue;
 	private BufferedImage cardImage;
 	
-	public Card(String suit, String face, int value, BufferedImage card) {
+	public Card(int value, String suit, String face, BufferedImage card) {
 		
 		this.suit = suit;
 		this.faceName = face;
@@ -92,8 +92,8 @@ public class Card {
 	
 	public static void main(String[] args) throws IOException {
 		
-		Card aceOfSpades = new Card("Spades","Ace",14, ImageIO.read(new File("Deck/AS.png")));
-		Card queenOfHearts = new Card("Hearts","Queen",12, ImageIO.read(new File("Deck/QH.png")));
+		Card aceOfSpades = new Card(14,"Spades","Ace", ImageIO.read(new File("Deck/AS.png")));
+		Card queenOfHearts = new Card(12,"Hearts","Queen", ImageIO.read(new File("Deck/QH.png")));
 		
 		System.out.print(aceOfSpades.toString() + "\n\n");
 		System.out.print(queenOfHearts.toString());
