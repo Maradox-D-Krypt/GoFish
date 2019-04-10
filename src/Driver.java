@@ -77,16 +77,27 @@ public class Driver {
 		
 				//Deck Object
 				Deck deck = new Deck();
+				Hands hand = new Hands();
+				Node node = new Node();
 				
 				//Shuffles the deck
 				deck.Shuffle(cards);
 		
 				//Insert the cards from the array into the Deck linear list
 				for(Card card : cards)
-					deck.insert(card);
-
+					deck.push(new Node(card));
+				
+				
 				deck.show();
 				System.out.println("\n");
+				
+				
+				hand.insert(deck.pop());
+				hand.insert(deck.pop());
+				hand.insert(deck.pop());
+				hand.insert(deck.pop());
+				hand.show();
+				
 
 	}
 
