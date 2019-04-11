@@ -52,52 +52,75 @@ public class Hands {
 		}
 	}
 	
-	/*
-	//Check in hand if there are any pairs
-	public Card checkForPairs() {
-		Card card = null;
+	
+	//accept a card and search through hand
+	public boolean checkForPairs(Node card) {
+		
+		boolean pair = false;
 		if(!isEmpty()) {
-			Node temp = head;
+			handNode temp = head;
 			while(temp != null) {
-				
+				temp = temp.getNext();
 				//Take each cards and compare them to each other to see if there are any pairs
-				if(temp.getData().getFaceName().equalsIgnoreCase(key) || temp.getData().getColor().equalsIgnoreCase(key) || temp.getData().getLicenseNo().equalsIgnoreCase(key)) {
-					card = temp.getData();
-					break;
-				}
-				temp = temp.getNext();
-			}
-		}
-		return card;
-	}
-	
-	
-	
-	public Card checkForPairsV2(Card card) {
-		Card data = null;
-		int pair = 0;
-		if(!isEmpty()) {
-			Node temp = head;
-			while(temp != null) {
-				
-				String FaceName = temp.getData().getFaceName();						
-				temp = temp.getNext();
-				
-				//Check if card is equal to the first one chosen 
-				if(temp.getData().getFaceName().equalsIgnoreCase(FaceName)) {
-					System.out.print("There is a pair");
-					pair++;
+				if(temp.getData().getData().getFaceName().equalsIgnoreCase(card.getData().getFaceName())) {
+					System.out.print("\nThere is a match");
 					break;
 				}
 				else {
-					System.out.print("There is no pair");
+					System.out.print("No match");
+					pair = false;
 				}
 			}
 		}
-		return data;
+		return pair;
+		
 	}
 	
-	*/
+	
+	public void sortHand() {
+		
+		if(!isEmpty()) {
+			handNode temp = head;
+			while(temp != null) {
+				
+				if(temp.getData().getData().getFaceValue() > (temp.getNext().getData().getData().getFaceValue())) {
+					
+				//	int temp1 = temp.getNext();
+					
+				}
+			}
+		}
+	}
+	
+	
+	//Check in hand if there are any pairs
+	public void checkForPairsV2() {
+		
+		Node node = null;
+		boolean pair;
+		
+		if(!isEmpty()) {
+			handNode temp = head;
+			handNode temp1 = null;
+			while(temp != null) {
+			
+				if(temp.getData().getData().getFaceName().equalsIgnoreCase(temp.getNext().getData().getData().getFaceName())) {
+					temp1 = temp.getNext().getNext();
+					System.out.println("\n\nThere is a present");
+					if(temp1 == null) {
+						temp = temp.getNext();
+						temp = null;
+					}
+					
+				}else {
+					temp = temp.getNext();
+					System.out.println("\n\nNo Pair");
+				}					
+			}
+		}
+	}
+	
+	
 	
 	public boolean remove() {
 		if(isEmpty()) {

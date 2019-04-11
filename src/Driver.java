@@ -77,7 +77,8 @@ public class Driver {
 		
 				//Deck Object
 				Deck deck = new Deck();
-				Hands hand = new Hands();
+				Hands human = new Hands();
+				Hands computer = new Hands();
 				Node node = new Node();
 				
 				//Shuffles the deck
@@ -92,13 +93,20 @@ public class Driver {
 				System.out.println("\n");
 				
 				
-				hand.insert(deck.pop());
-				hand.insert(deck.pop());
-				hand.insert(deck.pop());
-				hand.insert(deck.pop());
-				hand.show();
-				
+				human.insert(deck.pop());
+				computer.insert(deck.pop());
+				human.insert(deck.pop());
+				computer.insert(deck.pop());
+				human.insert(deck.pop());
+				computer.insert(deck.pop());
+				human.insert(deck.pop());
+				computer.insert(deck.pop());
+				human.show();
+				System.out.println("\n");
+				computer.show();
 
+				human.checkForPairsV2();
+				//computer.checkForPairsV2();
 	}
 
 }
